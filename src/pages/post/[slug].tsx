@@ -109,7 +109,7 @@ export default function Post() {
       {currentPost.map(post =>
         <PostContainer key={post?.id}>
           <div>
-            <img src={post?.imageUrl} layout='fill' />
+            <img src={post?.imageUrl} alt="post url" />
             <PostInfo>
               <span>{formatDate(post?.date ?? '')}</span>
               <span>{post?.author}</span>
