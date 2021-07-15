@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import ModalContent from "../ModalContent/ModalContet";
 import Modal from 'styled-react-modal';
-import Image from 'next/Image';
+import Image from 'next/image';
 
 import CloseIcon from '../../../public/closeIcon.svg';
 import SubmitIcon from '../../../public/submitIcon.svg';
@@ -147,11 +147,11 @@ export default function Header({ home = true }) {
         onEscapeKeydown={modalToggle}
       >
         <CloseButton onClick={() => modalToggle()}>
-          <Image src={CloseIcon} />
+          <Image src={CloseIcon} alt="close icon" />
         </CloseButton>
         <ModalContent />
         <SubmitButton onClick={() => modalToggle()}>
-          <Image src={SubmitIcon} />
+          <Image src={SubmitIcon} alt="arrow submit icon" />
           Submit
         </SubmitButton>
       </StyledModal>
