@@ -1,4 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Header from '../../components/Header/header';
 import { usePosts } from '../../context/PostsContext';
@@ -90,7 +91,9 @@ export default function Post() {
 
   const { posts } = usePosts();
 
-  const currentPost: PostProps | undefined = posts.find(post => post.id === slug)
+  const currentPost = posts.map(posts => (posts.find((post => post.id === slug))))
+
+  console.log(currentPost)
 
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -103,19 +106,22 @@ export default function Post() {
   return (
     <Container>
       <Header home={false} />
-      <PostContainer>
-        <div>
-          <img src={currentPost?.imageUrl} layout='fill' />
-          <PostInfo>
-            <span>{formatDate(currentPost?.date ?? '')}</span>
-            <span>{currentPost?.author}</span>
-            <h1>{currentPost?.title}</h1>
-          </PostInfo>
-        </div>
-        <PostContent>
-          <div dangerouslySetInnerHTML={{ __html: `${currentPost?.article}` }} />
-        </PostContent>
-      </PostContainer>
+      {currentPost.map(post =>
+        <PostContainer key={post?.id}>
+          <div>
+            <img src={post?.imageUrl} layout='fill' />
+            <PostInfo>
+              <span>{formatDate(post?.date ?? '')}</span>
+              <span>{post?.author}</span>
+              <h1>{post?.title}</h1>
+            </PostInfo>
+          </div>
+          <PostContent>
+            <div dangerouslySetInnerHTML={{ __html: `${post?.article}` }} />
+          </PostContent>
+        </PostContainer>
+      )}
+
     </Container>
   )
 }
