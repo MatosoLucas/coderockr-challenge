@@ -4,11 +4,26 @@ import { usePosts } from '../context/PostsContext';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useState } from 'react';
 
-const PostContainer = styled.div`
+const GridTest = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-rows: 320px 640px 320px 640px;
+  grid-template-columns: auto auto;
+  grid-template-areas: 
+    "item0 item1"
+    ". item2"
+    "item3 item4"
+    "item5 .";
+  grid-gap: 0px;
+`
+
+const PostContainer = styled.div<{ index: number }>`
   display: flex;
   height: 320px;
   max-width: 960px;
   margin: 0 auto 50px auto;
+  grid-area: item${props => props.index};
 
   img {
     height: 320px;
@@ -56,10 +71,12 @@ export default function Posts() {
   const { posts, setPosts } = usePosts();
   const [hasMore, setHasMore] = useState(true)
 
+
+
   const getMorePosts = async () => {
     const response = await fetch(`https://stormy-shelf-93141.herokuapp.com/articles?_start=${posts.length}&_limit=6`)
     const newPosts = await response.json()
-    setPosts((post) => [...post, ...newPosts])
+    setPosts((post) => [...post, [...newPosts]])
   }
 
   return (
@@ -69,21 +86,39 @@ export default function Posts() {
       hasMore={hasMore}
       loader={'...'}
     >
+      {posts.map(posts => (
+        <GridTest key={'bla'}>
+          {posts.map((post, index) => (
+            index % 3 == 0 && index != 0 || index % 4 == 0 && index != 0 ?
+              <PostContainer key={post.id} index={index}>
+                <div>
+                  <p>{post.author}</p>
+                  <Link href={`post/${post.id}`}>
+                    <p>{post.title}</p>
+                  </Link>
+                  <Link href={`post/${post.id}`}>
+                    <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 120)}...` }} />
+                  </Link>
+                </div>
+                <img src={post.imageUrl} alt="post image" />
+              </PostContainer>
+              :
+              <PostContainer key={post.id} index={index}>
+                <img src={post.imageUrl} alt="post image" />
+                <div>
+                  <p>{post.author}</p>
+                  <Link href={`post/${post.id}`}>
+                    <p>{post.title}</p>
+                  </Link>
+                  <Link href={`post/${post.id}`}>
+                    <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 120)}...` }} />
+                  </Link>
+                </div>
+              </PostContainer>
+          ))}
+        </GridTest>))
+      }
 
-      {posts.map(post => (
-        <PostContainer key={post.id}>
-          <img src={post.imageUrl} alt="porra" />
-          <div>
-            <p>{post.author}</p>
-            <Link href={`post/${post.id}`}>
-              <p>{post.title}</p>
-            </Link>
-            <Link href={`post/${post.id}`}>
-              <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 120)}...` }} />
-            </Link>
-          </div>
-        </PostContainer>
-      ))}
     </InfiniteScroll>
   )
 }

@@ -1,8 +1,13 @@
 import Link from "next/link";
 import styled from "styled-components";
-import Modal from 'react-modal'
 import { useState } from "react";
 import ModalContent from "../ModalContent/ModalContet";
+import Modal from 'styled-react-modal';
+import Image from 'next/Image';
+
+import CloseIcon from '../../../public/closeIcon.svg';
+import SubmitIcon from '../../../public/submitIcon.svg';
+
 
 const HeaderContainer = styled.div<{ show: boolean }>`
   display: flex;
@@ -11,7 +16,7 @@ const HeaderContainer = styled.div<{ show: boolean }>`
   background-color: #2D2D2D;
   margin-bottom: 60px;
   align-items: center;
-  ${props => props.show && 'position: sticky; top: 0;'}
+  ${props => props.show && 'position: sticky; top: 0;'};
 `
 
 const HeaderContent = styled.div`
@@ -76,34 +81,43 @@ const HeaderContent = styled.div`
 `
 
 const SubmitButton = styled.button`
+  display: flex;
   background: #2D2D2D;
   border-radius: 4px;
   width: 230px;
   height: 60px;
   margin: 72px auto 112px auto;
   color: #FFFFFF;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 36px;
+  font-size: 24px;
+
+  @media(max-width: 768px) {
+    margin: 36px 0;
+  }
 `
 
-const customStyles = {
-  overlay: {
-    background: 'rgba(0, 0, 0, 0.6)',
-    position: 'absolute',
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '20%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '0',
-    marginTop: '30%',
-  },
-};
+const StyledModal = Modal.styled`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  margin-top: 250px;
+  margin-bottom: 10px;
+`
+const CloseButton = styled.button`
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  margin: 18px 51px 0 auto;
 
+  @media (max-width: 768px) {
+    margin: 18px 24px 0 auto;
+  }
+`
 
 export default function Header({ home = true }) {
 
@@ -127,16 +141,20 @@ export default function Header({ home = true }) {
           <a onClick={() => modalToggle()}>Contact</a>
         </div>
       </HeaderContent>
-      <Modal
+      <StyledModal
         isOpen={isOpen}
-        onRequestClose={modalToggle}
-        style={customStyles}
-        preventScroll={false}
-        contentLabel="teste"
+        onBackgroundClick={modalToggle}
+        onEscapeKeydown={modalToggle}
       >
+        <CloseButton onClick={() => modalToggle()}>
+          <Image src={CloseIcon} />
+        </CloseButton>
         <ModalContent />
-        <SubmitButton onClick={() => modalToggle()}>Submit</SubmitButton>
-      </Modal>
+        <SubmitButton onClick={() => modalToggle()}>
+          <Image src={SubmitIcon} />
+          Submit
+        </SubmitButton>
+      </StyledModal>
     </HeaderContainer>
   )
 }

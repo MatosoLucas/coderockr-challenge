@@ -2,7 +2,17 @@ import styled from 'styled-components'
 
 const ModalContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 1113px;
+
+  span {
+    color: #F1A10A;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
 
   form {
     display: flex;
@@ -12,6 +22,11 @@ const ModalContainer = styled.div`
     label {
       font-size: 24px;
       margin-top: 48px;
+
+      @media(max-width: 468px) {
+      margin-top: 20px;
+      }
+
     }
 
     input {
@@ -52,7 +67,7 @@ const ModalContainer = styled.div`
     }
 
     @media(max-width: 468px) {
-      margin: 0;
+      margin: 20px;
       transition: 0.3s;
 
       input {
@@ -68,6 +83,7 @@ export default function ModalContent() {
 
   return (
     <ModalContainer>
+        <span>Contact</span>
       <form>
         <label>Name</label>
         <input placeholder="Fill your full name"></input>

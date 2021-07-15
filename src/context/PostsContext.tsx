@@ -15,8 +15,8 @@ interface PostProps {
 }
 
 interface PostsContextData {
-  posts: Array<PostProps>
-  setPosts: Dispatch<SetStateAction<PostProps[]>>;
+  posts: Array<Array<PostProps>>
+  setPosts: Dispatch<SetStateAction<PostProps[][]>>;
 }
 
 
@@ -24,13 +24,14 @@ const PostsContext = createContext({} as PostsContextData)
 
 export function PostsProvider({ children }: PostsProviderProps) {
 
-  const [posts, setPosts] = useState<Array<PostProps>>([])
+  const [posts, setPosts] = useState<Array<Array<PostProps>>>([])
 
   const fetchPosts = async () => {
     const response = await fetch('https://stormy-shelf-93141.herokuapp.com/articles?_limit=6')
     const data = await response.json()
-    setPosts(data)
+    setPosts([data])
   }
+
 
   useEffect(() => {
     fetchPosts()
