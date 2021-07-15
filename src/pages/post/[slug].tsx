@@ -74,16 +74,6 @@ const PostContent = styled.div`
   }
 `
 
-interface PostProps {
-  id: string;
-  author: string;
-  authorEmail: string;
-  title: string;
-  article: string;
-  date: string;
-  imageUrl: string;
-}
-
 export default function Post() {
 
   const router = useRouter()

@@ -93,10 +93,10 @@ export default function Posts() {
               <PostContainer key={post.id} index={index}>
                 <div>
                   <p>{post.author}</p>
-                  <Link href={`post/${post.id}`}>
+                  <Link href={`post/${post.id}`} passHref>
                     <p>{post.title}</p>
                   </Link>
-                  <Link href={`post/${post.id}`}>
+                  <Link href={`post/${post.id}`} passHref>
                     <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 120)}...` }} />
                   </Link>
                 </div>
@@ -107,10 +107,10 @@ export default function Posts() {
                 <img src={post.imageUrl} alt="post image" />
                 <div>
                   <p>{post.author}</p>
-                  <Link href={`post/${post.id}`}>
+                  <Link href={`post/${post.id}`} passHref>
                     <p>{post.title}</p>
                   </Link>
-                  <Link href={`post/${post.id}`}>
+                  <Link href={`post/${post.id}`} passHref>
                     <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 120)}...` }} />
                   </Link>
                 </div>
