@@ -4,11 +4,12 @@ import Header from '../../components/Header/header';
 import { usePosts } from '../../context/PostsContext';
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   background-image: linear-gradient(90deg, #F1A10A 0%, #342303 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 1920px;
   min-height: 100vh;
-  padding-bottom: 1px;
 `
 
 const PostContainer = styled.div`
@@ -20,7 +21,7 @@ const PostContainer = styled.div`
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 
   @media(max-width: 1320px) {
-    margin: 100px 20px;
+    margin: 60px 20px;
   }
 
       div {
@@ -64,6 +65,11 @@ const PostContent = styled.div`
     max-width: 680px;
     font-size: 24px;
     margin: 124px auto;
+    line-height: 34.13px;
+    
+    @media (max-width: 768px) {
+      margin: 124px 20px;
+    }
   }
 `
 

@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <PostsProvider>
       <Normalize />
       <Component {...pageProps} />
+      <div id="modal" />
     </PostsProvider>
   )
 }

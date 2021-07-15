@@ -30,6 +30,10 @@ const HeaderContent = styled.div`
     @media (max-width:1400px) {
       margin-left: 20px;
     }
+
+    @media (max-width: 468px) {
+      font-size: 32px;
+    }
   }
 
   div {
@@ -41,6 +45,11 @@ const HeaderContent = styled.div`
       font-size: 32px;
       margin: 0;
       text-decoration: none;
+
+      @media(max-width: 468px) {
+        margin-right: 10px;
+        font-size: 30px;
+      }
     }
 
     a:last-child {
@@ -55,8 +64,14 @@ const HeaderContent = styled.div`
         margin-left: 20px;
         transition-duration: 0.2s
       }
-
     }
+
+    @media(max-width: 420px) {
+      a:first-child {
+        display: none;
+      }
+    }
+
   }
 `
 
@@ -71,58 +86,56 @@ const SubmitButton = styled.button`
 
 const customStyles = {
   overlay: {
-    position: 'fixed',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    overflow: 'hidden'
+    background: 'rgba(0, 0, 0, 0.6)',
+    position: 'absolute',
   },
   content: {
     display: 'flex',
     flexDirection: 'column',
-    top: '50%',
+    position: 'absolute',
+    top: '20%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    backgroundcolor: 'rgba(0, 0, 0, 0.6)',
-    marginBottom: '10%'
+    borderRadius: '0',
+    marginTop: '30%',
   },
 };
 
 
 export default function Header({ home = true }) {
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
+  function modalToggle() {
+    setIsOpen(!isOpen);
   }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   return (
     <HeaderContainer show={home}>
       <HeaderContent>
-        <span>Rockr Blog</span>
+        <Link href="/">
+          <span>Rockr Blog</span>
+        </Link>
         <div>
           <Link href="/">
             <a>Posts</a>
           </Link>
-          <a onClick={() => openModal()}>Contact</a>
+          <a onClick={() => modalToggle()}>Contact</a>
         </div>
       </HeaderContent>
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        isOpen={isOpen}
+        onRequestClose={modalToggle}
         style={customStyles}
         preventScroll={false}
-
         contentLabel="teste"
       >
         <ModalContent />
-        <SubmitButton onClick={() => closeModal()}>Submit</SubmitButton>
+        <SubmitButton onClick={() => modalToggle()}>Submit</SubmitButton>
       </Modal>
     </HeaderContainer>
   )
