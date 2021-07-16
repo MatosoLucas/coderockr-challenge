@@ -86,8 +86,8 @@ export default function Posts() {
       hasMore={hasMore}
       loader={'...'}
     >
-      {posts.map(posts => (
-        <GridTest key={'bla'}>
+      {posts.map((posts, index) => (
+        <GridTest key={index}>
           {posts.map((post, index) => (
             index % 3 == 0 && index != 0 || index % 4 == 0 && index != 0 ?
               <PostContainer key={post.id} index={index}>

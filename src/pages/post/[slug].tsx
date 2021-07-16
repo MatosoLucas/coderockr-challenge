@@ -81,9 +81,10 @@ export default function Post() {
 
   const { posts } = usePosts();
 
-  const currentPost = posts.map(posts => (posts.find((post => post.id === slug))))
+  const flatPosts = posts.flat()
 
-  console.log(currentPost)
+  const currentPost = flatPosts.find(post => post.id === slug)
+
 
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -96,22 +97,20 @@ export default function Post() {
   return (
     <Container>
       <Header home={false} />
-      {currentPost.map(post =>
-        <PostContainer key={post?.id}>
-          <div>
-            <img src={post?.imageUrl} alt="post url" />
-            <PostInfo>
-              <span>{formatDate(post?.date ?? '')}</span>
-              <span>{post?.author}</span>
-              <h1>{post?.title}</h1>
-            </PostInfo>
-          </div>
-          <PostContent>
-            <div dangerouslySetInnerHTML={{ __html: `${post?.article}` }} />
-          </PostContent>
-        </PostContainer>
-      )}
-
+      <PostContainer>
+        <div>
+          <img src={currentPost?.imageUrl} alt="post url" />
+          <PostInfo>
+            <span>{formatDate(currentPost?.date ?? '')}</span>
+            <span>{currentPost?.author}</span>
+            <h1>{currentPost?.title}</h1>
+          </PostInfo>
+        </div>
+        <PostContent>
+          <div dangerouslySetInnerHTML={{ __html: `${currentPost?.article}` }} />
+        </PostContent>
+      </PostContainer>
+      )
     </Container>
   )
 }
