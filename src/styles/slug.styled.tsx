@@ -5,21 +5,15 @@ export const Container = styled.div`
   flex-direction: column;
   background-image: linear-gradient(90deg, #F1A10A 0%, #342303 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  max-width: 1920px;
   min-height: 100vh;
 `
 
 export const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1280px;
   margin: 60px auto 218px auto;
   background: #FFFFFF;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
-
-  @media(max-width: 1320px) {
-    margin: 60px 20px;
-  }
 
       div {
         display: flex;
@@ -34,7 +28,6 @@ export const PostContainer = styled.div`
 
 export const PostInfo = styled.div`
   display: flex;
-  max-width: 640px;
   flex-direction: column;
 
   span:first-child {

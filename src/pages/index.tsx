@@ -1,5 +1,5 @@
 import Header from "../components/Header/header";
-import Posts from "../components/Posts";
+import Posts from "../components/posts";
 import { HomeContainer } from '../styles/index.styled';
 
 
