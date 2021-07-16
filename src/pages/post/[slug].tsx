@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
-import Header from '../../components/Header/Header';
+import Header from '../../components/Header/header';
 import { usePosts } from '../../context/PostsContext';
 import { Container, PostContainer, PostContent, PostInfo } from '../../styles/slug.styled';
 
