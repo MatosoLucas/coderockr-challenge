@@ -15,15 +15,15 @@ export const PostContainer = styled.div`
   background: #FFFFFF;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 
-      div {
-        display: flex;
+  div {
+    display: flex;
 
-      img {
-        display: flex;
-        width: 50%;
-        height: 50%;
-        }
-} 
+    img {
+      display: flex;
+      width: 50%;
+      height: 50%;
+    }
+  } 
 `
 
 export const PostInfo = styled.div`

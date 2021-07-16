@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { usePosts } from '../context/PostsContext';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useState } from 'react';
-import { GridTest, PostContainer } from './Posts.styled';
+import { GridTest, PostContainer, PostContainerLarge } from './Posts.styled';
 
 
 export default function Posts() {
@@ -28,7 +28,7 @@ export default function Posts() {
       {posts.map((posts, index) => (
         <GridTest key={index}>
           {posts.map((post, index) => (
-            index % 3 == 0 && index != 0 || index % 4 == 0 && index != 0 ?
+            index === 3 || index === 4 ?
               <PostContainer key={post.id} index={index}>
                 <div>
                   <span>{post.author}</span>
@@ -42,18 +42,32 @@ export default function Posts() {
                 <img src={post.imageUrl} alt="post image" />
               </PostContainer>
               :
-              <PostContainer key={post.id} index={index}>
-                <img src={post.imageUrl} alt="post image" />
-                <div>
-                  <span>{post.author}</span>
-                  <Link href={`post/${post.id}`} passHref>
-                    <span>{post.title}</span>
-                  </Link>
-                  <Link href={`post/${post.id}`} passHref>
-                    <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
-                  </Link>
-                </div>
-              </PostContainer>
+              index === 2 || index === 5 ?
+                <PostContainerLarge key={post.id} index={index}>
+                  <img src={post.imageUrl} alt="post image" />
+                  <div>
+                    <span>{post.author}</span>
+                    <Link href={`post/${post.id}`} passHref>
+                      <span>{post.title}</span>
+                    </Link>
+                    <Link href={`post/${post.id}`} passHref>
+                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
+                    </Link>
+                  </div>
+                </PostContainerLarge>
+                :
+                <PostContainer key={post.id} index={index}>
+                  <img src={post.imageUrl} alt="post image" />
+                  <div>
+                    <span>{post.author}</span>
+                    <Link href={`post/${post.id}`} passHref>
+                      <span>{post.title}</span>
+                    </Link>
+                    <Link href={`post/${post.id}`} passHref>
+                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
+                    </Link>
+                  </div>
+                </PostContainer>
           ))}
         </GridTest>))
       }
