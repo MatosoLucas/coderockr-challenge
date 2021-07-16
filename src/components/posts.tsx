@@ -71,10 +71,10 @@ export default function Posts() {
   const { posts, setPosts } = usePosts();
   const [hasMore, setHasMore] = useState(true)
 
-
+  const flatPosts = posts.flat()
 
   const getMorePosts = async () => {
-    const response = await fetch(`https://stormy-shelf-93141.herokuapp.com/articles?_start=${posts.length}&_limit=6`)
+    const response = await fetch(`https://stormy-shelf-93141.herokuapp.com/articles?_start=${flatPosts.length}&_limit=6`)
     const newPosts = await response.json()
     setPosts((post) => [...post, [...newPosts]])
   }
