@@ -1,4 +1,4 @@
-import Header from '../components/Header/Header'
+import Header from "../components/Header/Header";
 import Posts from "../components/Posts";
 import { HomeContainer } from '../styles/index.styled';
 
