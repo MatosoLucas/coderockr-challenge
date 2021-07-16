@@ -48,6 +48,7 @@ const HeaderContent = styled.div`
     a {
       color: #FFFFFF;
       font-size: 32px;
+      font-weight: 500;
       margin: 0;
       text-decoration: none;
 
