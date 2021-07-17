@@ -36,7 +36,7 @@ export default function Posts() {
                     <span>{post.title}</span>
                   </Link>
                   <Link href={`post/${post.id}`} passHref>
-                    <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
+                    <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 90)}` }} />
                   </Link>
                 </div>
                 <img src={post.imageUrl} alt="post image" />
@@ -51,7 +51,7 @@ export default function Posts() {
                       <span>{post.title}</span>
                     </Link>
                     <Link href={`post/${post.id}`} passHref>
-                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
+                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 90)}` }} />
                     </Link>
                   </div>
                 </PostContainerLarge>
@@ -64,7 +64,7 @@ export default function Posts() {
                       <span>{post.title}</span>
                     </Link>
                     <Link href={`post/${post.id}`} passHref>
-                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 100)}` }} />
+                      <div dangerouslySetInnerHTML={{ __html: `${post.article.slice(0, 90)}` }} />
                     </Link>
                   </div>
                 </PostContainer>

@@ -33,7 +33,7 @@ export default function Post() {
           <PostInfo>
             <span>{formatDate(currentPost?.date ?? '')}</span>
             <span>{currentPost?.author}</span>
-            <h1>{currentPost?.title}</h1>
+            <p>{currentPost?.title}</p>
           </PostInfo>
         </div>
         <PostContent>

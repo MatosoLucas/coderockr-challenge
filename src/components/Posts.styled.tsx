@@ -54,11 +54,11 @@ export const PostContainer = styled.div<{ index: number }>`
     }
 
     @media (max-width:1624px) {
-      padding: 25px 40px;
+      padding: 15px 30px;
     }
 
     @media (max-width:1024px) {
-      padding: 25px 30px;
+      padding: 15px 20px;
     }
 
     span {
@@ -67,7 +67,7 @@ export const PostContainer = styled.div<{ index: number }>`
       margin: 0px;
 
       @media (max-width:1624px) {
-      font-size: 18px;
+      font-size: 20px;
       }
 
     }
@@ -82,8 +82,12 @@ export const PostContainer = styled.div<{ index: number }>`
         text-decoration: underline;
       }
 
-      @media (max-width:1624px) {
-      font-size: 32px;
+      @media (max-width:1800px) {
+      font-size: 26px;
+      }
+
+      @media (max-width:1024px) {
+      font-size: 26px;
       }
 
     }
@@ -94,7 +98,11 @@ export const PostContainer = styled.div<{ index: number }>`
       margin: 0;
 
       @media (max-width: 1624px) {
-        font-size: 24px;
+        font-size: 22px;
+      }
+
+      @media (max-width:1024px) {
+      font-size: 22px;
       }
 
     }
@@ -144,15 +152,15 @@ export const PostContainerLarge = styled.div<{ index: number }>`
   div {
     display: flex;
     flex-direction: column;
-    padding: 35px 80px;
+    padding: 80px 162px;
     background: #FFFFFF;
 
-    @media (max-width:1920px) {
-      padding: 25px 60px;
+    @media (max-width:1800px) {
+      padding: 80px 100px;
     }
 
     @media (max-width:1624px) {
-      padding: 25px 40px;
+      padding: 80px 100px;
     }
 
     @media (max-width:1024px) {
@@ -164,8 +172,8 @@ export const PostContainerLarge = styled.div<{ index: number }>`
       color: #2D2D2D;
       margin: 0px;
 
-      @media (max-width:1624px) {
-      font-size: 18px;
+      @media (max-width:1280px) {
+      font-size: 20px;
       }
 
     }
@@ -180,8 +188,12 @@ export const PostContainerLarge = styled.div<{ index: number }>`
         text-decoration: underline;
       }
 
-      @media (max-width:1624px) {
+      @media (max-width:1280px) {
       font-size: 24px;
+      }
+
+      @media (max-width:1024px) {
+      font-size: 26px;
       }
 
     }

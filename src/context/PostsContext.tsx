@@ -32,7 +32,6 @@ export function PostsProvider({ children }: PostsProviderProps) {
     setPosts([data])
   }
 
-
   useEffect(() => {
     fetchPosts()
   }, [])
