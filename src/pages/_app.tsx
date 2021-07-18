@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize'
 import { BaseModalBackground, ModalProvider } from 'styled-react-modal'
 import { PostsProvider } from '../context/PostsContext'
 import styled from 'styled-components'
-import '../styles/noScroll.css'
+import '../styles/global.css'
 
 const SpecialModalBackground = styled(BaseModalBackground)`
   overflow-y: auto;

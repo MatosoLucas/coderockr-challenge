@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div<{ show: boolean }>`
   width: 100%;
   background-color: #2D2D2D;
   align-items: center;
-  ${props => props.show && 'position: sticky; top: 0;'};
+  ${props => props.show && 'position: sticky; top: 0; z-index: 1;'};
 `
 
 export const HeaderContent = styled.div`
