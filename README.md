@@ -1,35 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Personal Considerations
+I've tried to follow and maintain the figma design the most while making the project as responsive as possible.
 
+The final version of the application was deployed to vercel and can be found [here](https://coderockr-challenge.vercel.app/)
+
+
+## Stack used
+
+- [NextJS (CNA)](https://nextjs.org/)
+
+I've chosen NextJS for it's ecosystem and built-in TypeScrpit support.
+
+- [TypeScript](https://www.typescriptlang.org/)
+
+I've been using typescript on all my projects and with no surprise I've used on this one too. Making the code easier to debug and more readable.
+
+
+- [styled-components](https://styled-components.com/)
+
+I've used style-components on a previous project and decided to use again for it's ability to build custom components with css.
+
+
+- [styled-normalize](https://github.com/sergeysova/styled-normalize)
+
+To normalize the css of my application across different browsers.
+
+
+- [react-infinite-scroll-components](https://www.npmjs.com/package/react-infinite-scroll-component)
+
+It was my first time working with a infite scroll design so I used this package to help me.
 
 ## Getting Started
 
-First, run the development server:
-
+First, clone the repository 
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/MatosoLucas/coderockr-challenge.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project folder
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+$ cd coderockr-challenge
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+Install dependencies
+```bash
+$ yarn install
+```
+Run the project
+```bash
+simply run:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+$ yarn dev
 
-## Learn More
+or
 
-To learn more about Next.js, take a look at the following resources:
+$ yarn build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  and
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+$ yarn start
+```
+Open http://localhost:3000

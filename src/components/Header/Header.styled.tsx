@@ -22,6 +22,7 @@ export const HeaderContent = styled.div`
     font-size: 36px;
     color: #FFFFFF;
     white-space: nowrap;
+    cursor: pointer;
 
     @media (max-width:1400px) {
       margin-left: 20px;
